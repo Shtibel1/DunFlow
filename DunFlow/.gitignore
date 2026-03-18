@@ -1,0 +1,44 @@
+## .NET / C# gitignore
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+.idea/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/
+!**/[Pp]ackages/build/
+*.lock.json
+project.assets.json
+
+# Build tools
+.fake/
+_NCrunch_*
+nCrunchTemp_*
+
+# Rider
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

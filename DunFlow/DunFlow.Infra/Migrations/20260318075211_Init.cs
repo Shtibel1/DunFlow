@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DunFlow.Infra.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -156,8 +156,7 @@ namespace DunFlow.Infra.Migrations
                     { 4, "Distribution Completed", true, 4, 1 },
                     { 5, "Created", false, 1, 2 },
                     { 6, "Supplier Offers Received", false, 2, 2 },
-                    { 7, "Purchasing Approval", false, 3, 2 },
-                    { 8, "Receipt Image Upload", true, 4, 2 }
+                    { 7, "Purchase Completed", true, 3, 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -168,11 +167,9 @@ namespace DunFlow.Infra.Migrations
                     { 1, "textarea", true, "SpecificationText", "Specification Details", 2 },
                     { 2, "text", true, "BranchName", "Branch Name", 3 },
                     { 3, "text", true, "VersionNumber", "Release Version", 4 },
-                    { 4, "text", true, "SupplierName", "Supplier Name", 6 },
-                    { 5, "number", true, "Amount", "Amount", 6 },
-                    { 6, "text", true, "ApprovedBy", "Approved By", 7 },
-                    { 7, "text", true, "OrderId", "Order ID", 7 },
-                    { 8, "url", true, "ReceiptImageLink", "Receipt Image Link", 8 }
+                    { 4, "text", true, "PriceQuote1", "Price Quote 1", 6 },
+                    { 5, "text", true, "PriceQuote2", "Price Quote 2", 6 },
+                    { 6, "text", true, "ReceiptString", "Receipt String", 7 }
                 });
 
             migrationBuilder.CreateIndex(

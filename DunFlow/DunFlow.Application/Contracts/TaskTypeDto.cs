@@ -9,7 +9,7 @@ namespace DunFlow.Application.Contracts
     public class TaskTypeDto
     {
         public int TypeValue { get; set; }
-        public string TaskType { get; set; }
+        public required string TaskType { get; set; }
         public int FinalStatus { get; set; }
         public List<WorkTaskStatusDto> Statuses { get; set; } = new();
     }

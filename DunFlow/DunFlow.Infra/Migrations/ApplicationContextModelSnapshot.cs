@@ -125,17 +125,17 @@ namespace DunFlow.Infra.Migrations
                             Id = 4,
                             ControlType = "text",
                             IsRequired = true,
-                            Key = "SupplierName",
-                            Label = "Supplier Name",
+                            Key = "PriceQuote1",
+                            Label = "Price Quote 1",
                             WorkTaskStatusId = 6
                         },
                         new
                         {
                             Id = 5,
-                            ControlType = "number",
+                            ControlType = "text",
                             IsRequired = true,
-                            Key = "Amount",
-                            Label = "Amount",
+                            Key = "PriceQuote2",
+                            Label = "Price Quote 2",
                             WorkTaskStatusId = 6
                         },
                         new
@@ -143,27 +143,9 @@ namespace DunFlow.Infra.Migrations
                             Id = 6,
                             ControlType = "text",
                             IsRequired = true,
-                            Key = "ApprovedBy",
-                            Label = "Approved By",
+                            Key = "ReceiptString",
+                            Label = "Receipt String",
                             WorkTaskStatusId = 7
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ControlType = "text",
-                            IsRequired = true,
-                            Key = "OrderId",
-                            Label = "Order ID",
-                            WorkTaskStatusId = 7
-                        },
-                        new
-                        {
-                            Id = 8,
-                            ControlType = "url",
-                            IsRequired = true,
-                            Key = "ReceiptImageLink",
-                            Label = "Receipt Image Link",
-                            WorkTaskStatusId = 8
                         });
                 });
 
@@ -312,17 +294,9 @@ namespace DunFlow.Infra.Migrations
                         new
                         {
                             Id = 7,
-                            DisplayName = "Purchasing Approval",
-                            IsFinal = false,
-                            StatusValue = 3,
-                            WorkTaskTypeId = 2
-                        },
-                        new
-                        {
-                            Id = 8,
-                            DisplayName = "Receipt Image Upload",
+                            DisplayName = "Purchase Completed",
                             IsFinal = true,
-                            StatusValue = 4,
+                            StatusValue = 3,
                             WorkTaskTypeId = 2
                         });
                 });

@@ -45,7 +45,7 @@ namespace DunFlow.Infra.Repositories
         public async Task<IEnumerable<FormField>> GetFormFieldsByStatusValueAsync(int workTaskTypeId, int targetStatusValue)
         {
             return await _context.FormFields
-                .Where(f => f.WorkTaskStatus.WorkTaskTypeId == workTaskTypeId &&
+                .Where(f => f.WorkTaskStatus!.WorkTaskTypeId == workTaskTypeId &&
                             f.WorkTaskStatus.StatusValue == targetStatusValue)
                 .AsNoTracking()
                 .ToListAsync();

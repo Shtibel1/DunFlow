@@ -102,7 +102,7 @@ namespace DunFlow.Application.Services
             return _mapper.Map<IList<WorkTaskDto>>(tasks);
         }
 
-        private bool ValidateStructuralData(string json, IEnumerable<FormField> fields, out string error)
+        private bool ValidateStructuralData(string? json, IEnumerable<FormField> fields, out string error)
         {
             error = string.Empty;
             var requiredFields = fields.Where(f => f.IsRequired).ToList();
@@ -120,7 +120,7 @@ namespace DunFlow.Application.Services
             return true;
         }
 
-        private string MergeJsonData(string existingJson, string newJson)
+        private string MergeJsonData(string existingJson, string? newJson)
         {
             if (string.IsNullOrWhiteSpace(newJson) || newJson == "{}") return existingJson;
             if (string.IsNullOrWhiteSpace(existingJson) || existingJson == "{}") return newJson;
