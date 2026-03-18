@@ -8,7 +8,6 @@ namespace DunFlow.Application.Contracts
 {
     public class WorkTaskDetailsDto : WorkTaskDto
     {
-        public string? Description { get; set; }
         public string? CustomFieldsJson { get; set; } 
         public DateTime CreatedAt { get; set; }
         public bool CanBeClosed { get; set; }

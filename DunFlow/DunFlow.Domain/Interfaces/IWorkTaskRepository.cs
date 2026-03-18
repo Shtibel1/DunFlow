@@ -9,7 +9,7 @@ namespace DunFlow.Domain.Interfaces
 {
     public interface IWorkTaskRepository
     {
-        Task<WorkTask> GetByIdAsync(int id);
+        Task<WorkTask?> GetByIdAsync(int id);
         Task<IEnumerable<WorkTask>> GetTasksByUserIdAsync(int userId);
         Task AddAsync(WorkTask task);
         Task UpdateAsync(WorkTask task);

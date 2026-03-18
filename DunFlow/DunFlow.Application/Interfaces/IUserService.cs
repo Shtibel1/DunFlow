@@ -9,6 +9,6 @@ namespace DunFlow.Application.Interfaces
 {
     public interface IUserService
     {
-        Task<BaseResponse<IEnumerable<UserDto>>> GetAllUsersAsync();
+        Task<IEnumerable<UserDto>> GetAllUsersAsync();
     }
 }

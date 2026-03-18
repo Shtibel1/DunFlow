@@ -21,13 +21,10 @@ namespace DunFlow.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<BaseResponse<IEnumerable<UserDto>>> GetAllUsersAsync()
+        public async Task<IEnumerable<UserDto>> GetAllUsersAsync()
         {
             var users = await _repository.GetAllAsync();
-
-            var userDtos = _mapper.Map<IEnumerable<UserDto>>(users);
-
-            return BaseResponse<IEnumerable<UserDto>>.Success(userDtos);
+            return _mapper.Map<IEnumerable<UserDto>>(users);
         }
     }
 }

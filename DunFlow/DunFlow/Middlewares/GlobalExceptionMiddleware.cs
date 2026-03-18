@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace DunFlow.Middlewares
 {
@@ -17,34 +18,47 @@ namespace DunFlow.Middlewares
             {
                 await _next(httpContext);
             }
-
             catch (Exception ex)
             {
-                await HandleGlobalExceptionAsync(httpContext, StatusCodes.Status500InternalServerError, ex);
+                await HandleGlobalExceptionAsync(httpContext, ex);
             }
         }
 
-        private async Task HandleGlobalExceptionAsync(HttpContext context, int statusCode, Exception ex)
+        private async Task HandleGlobalExceptionAsync(HttpContext context, Exception ex)
         {
-            context.Response.ContentType = "application/json";
+            context.Response.ContentType = "application/problem+json";
+
+            var statusCode = ex switch
+            {
+                KeyNotFoundException => StatusCodes.Status404NotFound,
+                InvalidOperationException => StatusCodes.Status400BadRequest,
+                ArgumentException => StatusCodes.Status400BadRequest,
+                _ => StatusCodes.Status500InternalServerError
+            };
+
             context.Response.StatusCode = statusCode;
 
-            await context.Response.WriteAsync(new ErrorDetails
+            var title = statusCode switch
             {
-                StatusCode = context.Response.StatusCode,
-                Message = "Something went wrong",
-            }.ToString());
-        }
-    }
+                StatusCodes.Status404NotFound => "Resource Not Found",
+                StatusCodes.Status400BadRequest => "Bad Request",
+                _ => "Internal Server Error"
+            };
 
-    public class ErrorDetails
-    {
-        public int StatusCode { get; set; }
-        public string Message { get; set; }
+            var detail = statusCode == StatusCodes.Status500InternalServerError
+                ? "An unexpected error occurred."
+                : ex.Message;
 
-        public override string ToString()
-        {
-            return JsonConvert.SerializeObject(this);
+            var problemDetails = new ProblemDetails
+            {
+                Status = statusCode,
+                Title = title,
+                Detail = detail,
+                Instance = context.Request.Path
+            };
+
+            var json = JsonConvert.SerializeObject(problemDetails);
+            await context.Response.WriteAsync(json);
         }
     }
 }

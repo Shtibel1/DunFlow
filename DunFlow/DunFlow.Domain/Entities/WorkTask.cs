@@ -1,5 +1,4 @@
-﻿using DunFlow.Domain.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,13 +10,13 @@ namespace DunFlow.Domain.Entities
     public class WorkTask
     {
         public int Id { get; set; }
+
         [Required]
         [StringLength(200)]
         public required string Title { get; set; }
-        [MaxLength(2000)]
-        public string? Description { get; set; }
 
-        public TaskType Type { get; set; }
+        public int WorkTaskTypeId { get; set; }
+        public WorkTaskType? WorkTaskType { get; set; }
 
         public int CurrentStatus { get; set; }
 

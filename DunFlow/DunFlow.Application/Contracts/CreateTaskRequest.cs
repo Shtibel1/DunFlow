@@ -1,5 +1,4 @@
-﻿using DunFlow.Domain.Enums;
-using System;
+﻿
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,8 +11,7 @@ namespace DunFlow.Application.Contracts
     {
         [Required]
         public required string Title { get; set; }
-        public string? Description { get; set; }
-        public TaskType Type { get; set; }
+        public int WorkTaskTypeId { get; set; }
         public int AssignedUserId { get; set; }
     }
 }

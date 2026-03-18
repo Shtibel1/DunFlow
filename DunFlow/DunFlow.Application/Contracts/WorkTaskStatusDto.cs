@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DunFlow.Application.Contracts
 {
-    public class ChangeStatusResponse
+    public class WorkTaskStatusDto
     {
-        public bool IsSuccess { get; set; }
-        public string? ErrorMessage { get; set; }
+        public int StatusValue { get; set; }
+        public required string DisplayName { get; set; }
     }
 }

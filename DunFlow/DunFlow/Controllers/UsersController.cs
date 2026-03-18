@@ -19,7 +19,7 @@ namespace DunFlow.Controllers
         public async Task<IActionResult> GetUsers()
         {
             var response = await _userService.GetAllUsersAsync();
-            return Ok(response.Data);
+            return Ok(response);
         }
     }
 }

@@ -19,15 +19,18 @@ namespace DunFlow.Infra.Repositories
             _context = context;
         }
 
-        public async Task<WorkTask> GetByIdAsync(int id)
+        public async Task<WorkTask?> GetByIdAsync(int id)
         {
-            return await _context.WorkTasks.FirstOrDefaultAsync(t => t.Id == id);
+            return await _context.WorkTasks
+                .Include(t => t.WorkTaskType)
+                .FirstOrDefaultAsync(t => t.Id == id);
         }
 
         public async Task<IEnumerable<WorkTask>> GetTasksByUserIdAsync(int userId)
         {
             return await _context.WorkTasks
                 .Where(t => t.AssignedUserId == userId)
+                .Include(t => t.WorkTaskType)
                 .AsNoTracking()
                 .ToListAsync();
         }
