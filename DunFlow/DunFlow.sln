@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DunFlow.Infra", "DunFlow.In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DunFlow.Application", "DunFlow.Application\DunFlow.Application.csproj", "{6B9B8025-104C-44D1-98EF-BD6F2A5024A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DunFlow.Tests", "DunFlow.Tests\DunFlow.Tests.csproj", "{7C1E4A52-3B9D-4F0E-9A61-2D8B5C3E7F10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6B9B8025-104C-44D1-98EF-BD6F2A5024A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B9B8025-104C-44D1-98EF-BD6F2A5024A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B9B8025-104C-44D1-98EF-BD6F2A5024A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C1E4A52-3B9D-4F0E-9A61-2D8B5C3E7F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C1E4A52-3B9D-4F0E-9A61-2D8B5C3E7F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C1E4A52-3B9D-4F0E-9A61-2D8B5C3E7F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C1E4A52-3B9D-4F0E-9A61-2D8B5C3E7F10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

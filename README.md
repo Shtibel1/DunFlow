@@ -1,5 +1,7 @@
 # Task-Management Platform
 
+[![CI](https://github.com/Shtibel1/DunFlow/actions/workflows/ci.yml/badge.svg)](https://github.com/Shtibel1/DunFlow/actions/workflows/ci.yml)
+
 ## Extensibility Strategy (How to add a new task type)
 One of the core design goals was to avoid hardcoded conditional logic for different task types.
 To achieve this, I implemented a **"Metadata-Driven Workflow Engine."**
@@ -35,4 +37,19 @@ The Angular client dynamically generates UI input fields based on the same metad
 5. Run the application:
    The backend API will typically be available at `https://localhost:7176`.
 
+## Tests
 
+The workflow rules live in `WorkTaskService` and are covered by an xUnit suite in `DunFlow/DunFlow.Tests`, which runs against in-memory fakes (no database needed):
+
+- Forward moves must be sequential, while backward moves to any earlier status are allowed.
+- Each target status enforces its own required `FormFields`, and a missing or blank value is rejected with the field's label.
+- Custom field data is merged across transitions, and newer values win.
+- A task can be closed only at a status marked `IsFinal`, and only once.
+
+Run them from the `DunFlow` directory:
+
+```bash
+dotnet test DunFlow.sln
+```
+
+GitHub Actions builds the solution and runs the suite on every push and pull request.
